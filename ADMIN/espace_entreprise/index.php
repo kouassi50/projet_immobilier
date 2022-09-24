@@ -6,13 +6,14 @@
 $bd = new PDO('mysql:host=localhost;dbname=bd_immogest;charset=utf8;', 'root', '');
     
      if (isset($_POST['envoi'])) {
-        if (!empty($_POST['id_agentimmobilier']) AND !empty($_POST['prenom']) AND !empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['matricule']) AND !empty($_POST['domicile']) ) {
+        if (!empty($_POST['id_agentimmobilier']) AND !empty($_POST['prenom']) AND !empty($_POST['nom']) AND !empty($_POST['matricule']) AND !empty($_POST['domicile']) ) {
             $id_agentimmobilier = htmlspecialchars($_POST['id_agentimmobilier']);
             $prenom = htmlspecialchars($_POST['prenom']);
             $nom = htmlspecialchars($_POST['nom']);
            
             $matricule = htmlspecialchars($_POST['matricule']);
             $domicile = htmlspecialchars($_POST['domicile']);
+            
             $insertAgent = $bd->prepare('INSERT INTO  agent_immobilier(id_agentimmobilier,	prenom,	nom,	matricule,	domicile)VALUES(?,?,?,?,?)');
             $insertAgent->execute(array($id_agentimmobilier,	$prenom,	$nom,	$matricule,	$domicile));
           
@@ -47,7 +48,7 @@ $bd = new PDO('mysql:host=localhost;dbname=bd_immogest;charset=utf8;', 'root', '
 
 
 
-?>
+     ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -55,15 +56,17 @@ $bd = new PDO('mysql:host=localhost;dbname=bd_immogest;charset=utf8;', 'root', '
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscription</title>
+	<link rel="stylesheet" href="entreprise.css">
+    <title>Espace Entreprise</title>
 </head>
 <body>
+	
 <form role="form" class="form-horizontal" action="" method="POST" autocomplete="off">
-						<h1 style="text-align:center;"><?php echo 'PAGE INSCRIPTION' ;?></h1>
-                        <?php echo $_SESSION['id_entreprise'];?>
+						
+                     <h1 style="text-align:center;"><u>ESPACE ENTREPRISE</u></h1>
 					   
 	    				   <div class="form-group">
-
+						   
 								<div class="col-xs-12">
 									<label for="id_agentimmobilier">id_agentimmobilier:</label>
 								<input type="text" name="id_agentimmobilier" class="form-control"  placeholder="<?php echo 'votre id_agentimmobilier ';?>" autocomplete="on" value="<?php echo isset($prenom) ? $prenom : '' ?>"

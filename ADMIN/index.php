@@ -1,74 +1,89 @@
  
- <?php
- 
- 
- 
- 
- 
- 
- ?>
+		<?php
+		
+		
+		
+		
+		
+		
+		?>
 
-  
+		
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
 
-	<meta charset="utf-8">
-<!-- Theme Informations -->	
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="author" content="">
-<!-- Theme Informations -->
+			<meta charset="utf-8">
+		<!-- Theme Informations -->	
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<meta name="description" content="">
+			<meta name="keywords" content="">
+			<meta name="author" content="">
+		<!-- Theme Informations -->
 
-	<title>Plateforme Immobiliere</title>
+			<title>Plateforme | Immobiliere</title>
 
-<!-- Stylesheets -->
-	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="css/style_second_theme.css">	
-	<link rel="stylesheet" href="css/common-style.css">
-	<link rel="stylesheet" href="style.css">
-<!-- Stylesheets -->
-  
-<!-- Icons & Fonts -->
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-<!-- Icons & Fonts -->
+		<!-- Stylesheets -->
+			<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+			<link rel="stylesheet" href="css/style_second_theme.css">	
+			<link rel="stylesheet" href="css/common-style.css">
+			<link rel="stylesheet" href="style.css">
+		<!-- Stylesheets -->
+		
+		<!-- Icons & Fonts -->
+			<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+		<!-- Icons & Fonts -->
 
-</head>
-<body id="page-top">
-	<style>
-        
-		div ul li a{
+		</head>
+		<body id="page-top">
+			<style>
+				
+				div ul li a{
 
-display:inline-block;                /* Transformation en block */
-min-width: 120px;             /* Largeur minimale des liens */   
+		display:inline-block;                /* Transformation en block */
+		min-width: 120px;             /* Largeur minimale des liens */   
 
-margin: ;               /* Marges externes (1 valeurs = 4 directions) */
-padding: ;            /* Marges internes (2 valeurs = haut/bas et gauche/droite)*/
-text-align: center;           /* Centrage du texte */   
-background-color: ;    /* Couleur d'arrière-plan */
-color: ;                  /* Couleur du texte */
-text-decoration: none;        /* Suppression du soulignement */
-border: 3px solid #000000;       /* Ajout d'une bordure */
-border-radius: ;
-}
+		margin: ;               /* Marges externes (1 valeurs = 4 directions) */
+		padding: ;            /* Marges internes (2 valeurs = haut/bas et gauche/droite)*/
+		text-align: center;           /* Centrage du texte */   
+		background-color: ;    /* Couleur d'arrière-plan */
+		color: ;                  /* Couleur du texte */
+		text-decoration: none;        /* Suppression du soulignement */
+		border: ;       /* Ajout d'une bordure */
+		border-radius: ;
+		}
 
-	</style>
-  
-  
-  <!-- Navigation Section-->
-    <nav id="nav" class="container-fluid navbar navbar-default navbar-fixed-top">
-        <div class="container">
-	      <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#toggle">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-	      	    <p class="navbar-brand page-scroll"><span style="color:#800080;">EUROD-</span>IMMOBILIER.CI</p>
+		img{
+			width: 90px;
+			height: 50px;
+			margin-left: 92px;
+			
+			
+			
+            
+		}
+
+		li:hover{
+			font-weight: bold;
+			color: #008000;
+			text-align: center;
+		}
+
+		
+
+			</style>
+		
+		
+		<!-- Navigation Section-->
+			<nav id="nav" class="container-fluid navbar navbar-default navbar-fixed-top">
+				<div class="container-responsive">
+				<div class="navbar-header page-scroll">
+					<ol>
+						
+					</ol>
+					<a class="navbar-brand page-scroll" href="#page-top"><span><img src="img/logo.png" alt="" srcset=""></span></a>	  
 	      </div>
 	      <div class="collapse navbar-collapse" id="toggle">
 		      	<ul class="nav navbar-nav">
@@ -81,9 +96,7 @@ border-radius: ;
 		      		<li class="lBorder"><a class="page-scroll" href="#about">A PROPOS DE NOUS</a></li>
 		      		<li class="lBorder"><a class="page-scroll" href="#contact">S'INSCRIRE</a></li>
 		      		<li class="dropdown">
-		                <a class="dropdown-toggle" data-toggle="dropdown" href=""><button>SE CONNECTER</button> 
-		                  <i class="text-right fa fa-angle-up fa-2x"></i>
-		                </a>
+		                
 						
 		               <!-- <ul class="dropdown-menu">
 		                  <li><a href="index.html">First theme</a></li>

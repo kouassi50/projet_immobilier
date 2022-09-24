@@ -51,6 +51,8 @@ $bd = new PDO('mysql:host=localhost;dbname=bd_immogest;charset=utf8;', 'root', '
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="register2.css">
+	<script src="register2.js"></script>
     <title>Inscription</title>
 </head>
 <body>
@@ -61,7 +63,7 @@ $bd = new PDO('mysql:host=localhost;dbname=bd_immogest;charset=utf8;', 'root', '
 
 								<div class="col-xs-12">
 									<label for="nom">Nom:</label>
-								<input type="text" name="nom" class="form-control"  placeholder="<?php echo 'votre nom ';?>" autocomplete="on" value="<?php echo isset($prenom) ? $prenom : '' ?>"
+								<input type="text" name="nom" class="form-control"  placeholder="<?php echo 'votre nom ';?>" autocomplete="on" value="<?php echo isset($nom) ? $nom : '' ?>"
 								 required>	
 								 <p><?php echo isset($error['nom']) ? $error['nom'] : '' ;?></p>
 
