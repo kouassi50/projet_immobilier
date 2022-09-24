@@ -2,8 +2,8 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le : sam. 24 sep. 2022 à 12:41
+-- Hôte : localhost
+-- Généré le : sam. 24 sep. 2022 à 14:28
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 8.1.6
 
@@ -139,11 +139,12 @@ INSERT INTO `entreprise_immobilier` (`id_entreprise`, `nom`, `matricule`) VALUES
 --
 
 CREATE TABLE `localiser` (
+  `id` int(11) NOT NULL,
   `date` date NOT NULL,
   `prix` int(15) NOT NULL,
   `ville` varchar(25) CHARACTER SET utf8 NOT NULL,
   `quartier` varchar(25) CHARACTER SET utf8 NOT NULL,
-  `id_agentimmobilier` int(10) UNSIGNED NOT NULL,
+  `id_agentimmobilie` int(10) UNSIGNED NOT NULL,
   `id_maison` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -151,10 +152,10 @@ CREATE TABLE `localiser` (
 -- Déchargement des données de la table `localiser`
 --
 
-INSERT INTO `localiser` (`date`, `prix`, `ville`, `quartier`, `id_agentimmobilier`, `id_maison`) VALUES
-('0000-00-00', 15, 'Daoukro', 'Chicago', 1, 1),
-('0000-00-00', 15, 'Yamoussoukro', '220 logements', 3, 2),
-('2022-09-20', -500000000, 'Abidjan', 'Abobo Belleville', 1, 1);
+INSERT INTO `localiser` (`id`, `date`, `prix`, `ville`, `quartier`, `id_agentimmobilie`, `id_maison`) VALUES
+(1, '0000-00-00', 15, 'Daoukro', 'Chicago', 1, 1),
+(2, '0000-00-00', 15, 'Yamoussoukro', '220 logements', 3, 2),
+(3, '2022-09-20', -500000000, 'Abidjan', 'Abobo Belleville', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -187,6 +188,7 @@ INSERT INTO `maison` (`id_maison`, `numero`, `proprietaire`, `fichier`, `images`
 --
 
 CREATE TABLE `recrute` (
+  `id` int(11) NOT NULL,
   `id_agentimmobilier` int(10) UNSIGNED NOT NULL,
   `id_entreprise` int(10) UNSIGNED NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp()
@@ -196,10 +198,10 @@ CREATE TABLE `recrute` (
 -- Déchargement des données de la table `recrute`
 --
 
-INSERT INTO `recrute` (`id_agentimmobilier`, `id_entreprise`, `date`) VALUES
-(1, 2, '0000-00-00 00:00:00'),
-(3, 2, '2022-09-17 11:20:46'),
-(3, 1, '2022-09-20 10:19:55');
+INSERT INTO `recrute` (`id`, `id_agentimmobilier`, `id_entreprise`, `date`) VALUES
+(1, 1, 2, '0000-00-00 00:00:00'),
+(2, 3, 2, '2022-09-17 11:20:46'),
+(3, 3, 1, '2022-09-20 10:19:55');
 
 -- --------------------------------------------------------
 
@@ -252,7 +254,9 @@ ALTER TABLE `agent_immobilier`
 -- Index pour la table `appel_offres`
 --
 ALTER TABLE `appel_offres`
-  ADD PRIMARY KEY (`id_offre`);
+  ADD PRIMARY KEY (`id_offre`),
+  ADD KEY `appel_offres_ibfk_1` (`id_architecte`),
+  ADD KEY `appel_offres_ibfk_2` (`id_chefchantier`);
 
 --
 -- Index pour la table `cabinet_architecte`
@@ -276,9 +280,10 @@ ALTER TABLE `entreprise_immobilier`
 -- Index pour la table `localiser`
 --
 ALTER TABLE `localiser`
-  ADD KEY `id_agent` (`id_agentimmobilier`),
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_agent` (`id_agentimmobilie`),
   ADD KEY `id_maison` (`id_maison`),
-  ADD KEY `id_agentimmobilier` (`id_agentimmobilier`);
+  ADD KEY `id_agentimmobilier` (`id_agentimmobilie`);
 
 --
 -- Index pour la table `maison`
@@ -290,7 +295,7 @@ ALTER TABLE `maison`
 -- Index pour la table `recrute`
 --
 ALTER TABLE `recrute`
-  ADD PRIMARY KEY (`date`),
+  ADD PRIMARY KEY (`id`),
   ADD KEY `id_recrute` (`id_agentimmobilier`),
   ADD KEY `id_entreprise` (`id_entreprise`),
   ADD KEY `id_agentimmobilier` (`id_agentimmobilier`);
@@ -311,10 +316,28 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT pour la table `agent_immobilier`
+--
+ALTER TABLE `agent_immobilier`
+  MODIFY `id_agentimmobilier` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT pour la table `appel_offres`
 --
 ALTER TABLE `appel_offres`
   MODIFY `id_offre` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT pour la table `localiser`
+--
+ALTER TABLE `localiser`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT pour la table `recrute`
+--
+ALTER TABLE `recrute`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `users`
@@ -343,7 +366,7 @@ ALTER TABLE `chef_chantier`
 -- Contraintes pour la table `localiser`
 --
 ALTER TABLE `localiser`
-  ADD CONSTRAINT `localiser_ibfk_1` FOREIGN KEY (`id_agentimmobilier`) REFERENCES `agent_immobilier` (`id_agentimmobilier`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `localiser_ibfk_1` FOREIGN KEY (`id_agentimmobilie`) REFERENCES `agent_immobilier` (`id_agentimmobilier`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `localiser_ibfk_2` FOREIGN KEY (`id_maison`) REFERENCES `maison` (`id_maison`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
