@@ -63,6 +63,7 @@ $bd = new PDO('mysql:host=localhost;dbname=bd_immogest;charset=utf8;', 'root', '
 	
 <form role="form" class="form-horizontal" action="" method="POST" autocomplete="off">
 						
+
                      <h1 style="text-align:center;"><u>ESPACE ENTREPRISE</u></h1>
 					   
 	    				   <div class="form-group">
